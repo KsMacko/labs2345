@@ -58,6 +58,33 @@ def task2(smth):
         print("Не подходящий тип данных!")
 
 
+def task3(m):
+    if type(m, list):
+        for i in m:
+            print(f"{i}\n")
+        rows = len(m)
+        colums = len(m[0])
+        true_col = 0
+        summ = 0
+        negative = True
+        for j in range(colums):
+            for i in range(rows):
+                if m[i][j] >= 0:
+                    negative = False
+                    break
+                if negative:
+                    true_col = j
+        if true_col >= 0:
+            for j in range(colums):
+                for i in range(rows):
+                    summ += m[i][j]
+            return summ/rows
+        else:
+            print("Нет подхощях столбцов!")
+    else:
+        print("Неподходящий тип данных!")
+
+
 def menu():
     choice = -1
     while choice != 0:
